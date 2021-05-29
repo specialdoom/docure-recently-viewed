@@ -1,8 +1,8 @@
 {
-  "name": "@specialdoom/docure-button",
-  "version": "0.0.2",
+  "name": "@specialdoom/docure-recently-viewed",
+  "version": "0.0.1",
   "main": "dist/bundle.js",
-  "description": "Button web component",
+  "description": "Recently viewed articles web component",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -11,6 +11,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "dayjs": "^1.10.5",
     "jest": "^26.6.3",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
@@ -31,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/specialdoom/docure-button"
+    "url": "https://github.com/specialdoom/docure-recently-viewed"
   },
   "license": "ISC"
 }

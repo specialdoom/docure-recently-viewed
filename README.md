@@ -1,4 +1,4 @@
-### docure-button
+### docure-recently-viewed
 
 ```js
 npm i @specialdoom/docure-button
@@ -12,6 +12,6 @@ npm i @specialdoom/docure-button
 <docure-button link>Link</docure-button>
 ```
 
-### example 
+### example
 
 ![Presentation](presentation.png)

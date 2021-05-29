@@ -1,3 +1,3 @@
-import DocureButton from './docure-button.svelte';
+import DocureRecentlyViewed from './docure-recently-viewed.svelte';
 
-export default DocureButton;
+export default DocureRecentlyViewed;
