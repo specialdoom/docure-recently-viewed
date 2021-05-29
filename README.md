@@ -1,15 +1,13 @@
 ### docure-recently-viewed
 
 ```js
-npm i @specialdoom/docure-button
+npm i @specialdoom/docure-recently-viewed
 ```
 
 ### usage
 
 ```html
-<docure-button primary>Primary</docure-button>
-<docure-button secondary>Secondary</docure-button>
-<docure-button link>Link</docure-button>
+<docure-recently-viewed userid="value" token="{token}"></docure-recently-viewed>
 ```
 
 ### example
