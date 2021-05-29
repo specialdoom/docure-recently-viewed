@@ -2,10 +2,7 @@
 
 <script>
   import { afterUpdate } from 'svelte';
-  import dayjs from 'dayjs';
-  import relativeTime from 'dayjs/plugin/relativeTime';
-
-  dayjs.extend(relativeTime);
+  import dayjs from './config/dayjs';
 
   export let token = '';
   export let userid = '';
@@ -15,16 +12,12 @@
 
   afterUpdate(() => {
     if (userid && token && request) {
-      fetch(
-        'http://localhost:5001/docure-9a8dd/us-central1/docure/recently-viewed/' +
-          userid,
-        {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+      fetch(`${ApiEndpoints.article.recentlyViewed}${userid}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
         }
-      )
+      })
         .then((res) => res.json())
         .then((data) => {
           articles = data;
@@ -37,14 +30,20 @@
 <div class="docure-recently-viewed">
   <div class="docure-recently-viewed-title">Recently viewed articles</div>
   <div class="docure-recently-viewed-container">
-    {#each articles as article}
-      <div class="docure-recently-viewed-article">
-        <div class="title">
-          <a href={`/article/${article.articleId}`}>{article.title}</a>
+    {#if articles.length === 0 && request === false}
+      You have't read any article!
+    {:else if articles.length === 0 && request === true}
+      Getting articles...
+    {:else}
+      {#each articles as article}
+        <div class="docure-recently-viewed-article">
+          <div class="title">
+            <a href={`/article/${article.articleId}`}>{article.title}</a>
+          </div>
+          <div class="date">{dayjs(new Date(article.date)).fromNow()}</div>
         </div>
-        <div class="date">{dayjs(new Date(article.date)).fromNow()}</div>
-      </div>
-    {/each}
+      {/each}
+    {/if}
   </div>
 </div>
 
@@ -59,7 +58,7 @@
   .docure-recently-viewed-container {
     box-sizing: border-box;
     padding: 10px;
-    width: 300px;
+    width: 100%;
     height: 500px;
     overflow: auto;
   }
@@ -67,6 +66,7 @@
   .docure-recently-viewed-title {
     padding: 5px 0;
     border-bottom: 1px solid black;
+    width: 100%;
   }
 
   .docure-recently-viewed-article {
@@ -76,11 +76,11 @@
   }
 
   .docure-recently-viewed-article .title {
-    width: 60%;
+    width: 50%;
   }
 
   .docure-recently-viewed-article .date {
-    width: 40%;
+    width: 50%;
     font-size: 12px;
     text-align: right;
   }
