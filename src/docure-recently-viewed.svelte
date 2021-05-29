@@ -40,7 +40,7 @@
     {#each articles as article}
       <div class="docure-recently-viewed-article">
         <div class="title">
-          <a href={`/article/${article.articleId}`}>Article {article.title}</a>
+          <a href={`/article/${article.articleId}`}>{article.title}</a>
         </div>
         <div class="date">{dayjs(new Date(article.date)).fromNow()}</div>
       </div>
