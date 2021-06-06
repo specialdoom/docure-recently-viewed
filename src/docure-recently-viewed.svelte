@@ -2,6 +2,7 @@
 
 <script>
   import { afterUpdate } from 'svelte';
+  import { ApiEndpoints } from './config/api';
 
   export let token = '';
   export let userid = '';
