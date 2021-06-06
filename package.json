@@ -1,6 +1,6 @@
 {
   "name": "@specialdoom/docure-recently-viewed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/bundle.js",
   "description": "Recently viewed articles web component",
   "scripts": {
