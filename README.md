@@ -1,7 +1,7 @@
 ### docure-recently-viewed
 
 ```js
-npm i @specialdoom/docure-recently-viewed
+npm i @specialdoom/docure-recently-viewed dayjs
 ```
 
 ### usage
