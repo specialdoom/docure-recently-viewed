@@ -2,7 +2,6 @@
 
 <script>
   import { afterUpdate } from 'svelte';
-  import dayjs from './config/dayjs';
 
   export let token = '';
   export let userid = '';
@@ -40,7 +39,7 @@
           <div class="title">
             <a href={`/article/${article.articleId}`}>{article.title}</a>
           </div>
-          <div class="date">{dayjs(new Date(article.date)).fromNow()}</div>
+          <div class="date">{new Date(article.date).toString()}</div>
         </div>
       {/each}
     {/if}
