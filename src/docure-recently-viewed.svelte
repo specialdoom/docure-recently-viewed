@@ -3,6 +3,7 @@
 <script>
   import { afterUpdate } from 'svelte';
   import { ApiEndpoints } from './config/api';
+  import { getRelativeTime } from './helpers/relativeTime';
 
   export let token = '';
   export let userid = '';
@@ -20,7 +21,12 @@
       })
         .then((res) => res.json())
         .then((data) => {
-          articles = data;
+          articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => {
           request = false;
         });
     }
@@ -40,7 +46,7 @@
           <div class="title">
             <a href={`/article/${article.articleId}`}>{article.title}</a>
           </div>
-          <div class="date">{new Date(article.date).toString()}</div>
+          <div class="date">{getRelativeTime(new Date(article.date))}</div>
         </div>
       {/each}
     {/if}
